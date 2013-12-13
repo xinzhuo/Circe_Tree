@@ -1,10 +1,17 @@
-//The ClassTreeNode class represent the classifications of a problem
-//A problem can have multiple classifications
+/**
+ * Inherit TreeNode, can be child of itself or a TabTreeNode
+ * The ClassTreeNode class represent the classifications of a problem
+ * A problem can have multiple classifications (multiple levels)
+ * @author DongXinzhuo
+ *
+ */
 public class ClassTreeNode extends TreeNode{
-	//Constructor
+	/**
+	 * Constructor for ClassTreeNode with specified node type "Class"
+	 * @param id
+	 */
 	public ClassTreeNode(String id) {
 		super("Class", id);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

@@ -1,4 +1,14 @@
+/**
+ * Third level of the tree, under LabTreeNode
+ * Represent the Tab number in the system
+ * @author DongXinzhuo
+ *
+ */
 public class TabTreeNode extends TreeNode{
+	/**
+	 * Constructor for TabTreeNode to specify node type
+	 * @param tabTreeNodeId
+	 */
 	public TabTreeNode(String tabTreeNodeId) {
 		super("Tab", tabTreeNodeId);
 	}

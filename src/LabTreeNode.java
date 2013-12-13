@@ -1,4 +1,14 @@
+/**
+ * Inherit TreeNode, second level of the tree (under StartTreeNode)
+ * Represent the Lab number in the system
+ * @author DongXinzhuo
+ *
+ */
 public class LabTreeNode extends TreeNode{	
+	/**
+	 * Constructor to specify Node type (Lab)
+	 * @param labTreeNodeId
+	 */
 	public LabTreeNode(String labTreeNodeId) {
 		super("Lab", labTreeNodeId); 
 	}

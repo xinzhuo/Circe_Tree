@@ -1,9 +1,18 @@
 import java.util.ArrayList;
-
+/**
+ * Leaves in the tree, inherit ClassTreeNode but with extra field
+ * @author DongXinzhuo
+ *
+ */
 public class ClassTreeLeaf extends ClassTreeNode {
+	/**
+	 * Array of Responses with different number of tries
+	 */
 	private ArrayList<String> responses;
-	
-	//The ClassTreeLeaf is the classification 3 node
+	/**
+	 * Constructor specifies node type of ClassLeaf
+	 * @param classTreeLeafId
+	 */
 	public ClassTreeLeaf(String classTreeLeafId) {
 		super(classTreeLeafId);
 		this.setTypeId("ClassLeaf");
@@ -18,10 +27,14 @@ public class ClassTreeLeaf extends ClassTreeNode {
 		this.responses = responses;
 	}
 
+	/**
+	 * Add string to the array of responses
+	 * @param words
+	 */
 	public void addResponses(String words){
 		responses.add(words);
 	}
-	
+
 	@Override
 	public String toString(){
 		return "TypeId: " + typeId + "\tid: " + id + "\n";

@@ -22,7 +22,9 @@ public class TreeBuilder {
 	  
 	  URL SPREADSHEET_FEED_URL = new URL("https://spreadsheets.google.com/feeds/spreadsheets/private/full");
 
-	  // Make a request to the API and get all spreadsheets.
+	  /**
+	   * Make a request to the API and get all spreadsheets.
+	   */
 	  SpreadsheetFeed feed = service.getFeed(SPREADSHEET_FEED_URL, SpreadsheetFeed.class);
 	  List<SpreadsheetEntry> spreadsheets = feed.getEntries();
 
@@ -31,8 +33,10 @@ public class TreeBuilder {
 		  return;
 	  }
 	  
+	  /**
+	   *  Iterate through all of the spreadsheets returned to search for spreadsheet
+	   */
 	  SpreadsheetEntry circe_spreadsheet = null;
-	  // Iterate through all of the spreadsheets returned
 	  for (SpreadsheetEntry spreadsheet : spreadsheets) {
 		  // Substitute the file title here
 		  if (spreadsheet.getTitle().getPlainText().equals("Copy of Circe Coaching Sheet")){
@@ -40,17 +44,25 @@ public class TreeBuilder {
 			  break;
 		  }
 	  }
-	  // Check if corresponding spreadsheet exists
+	  
+	  /**
+	   * Check if corresponding spreadsheet exists
+	   */
 	  if (circe_spreadsheet==null){
 		  System.out.println("Error: No corresponding spreadsheet");
 		  return;
 	  }
 	  
-	  //Choose the right worksheet within the spreadsheet, would depend actual situation
+	  /**
+	   * Choose the right worksheet within the spreadsheet (would depend actual situation)
+	   */
 	  List<WorksheetEntry> worksheets = circe_spreadsheet.getWorksheets();
 	  WorksheetEntry circe_worksheet = worksheets.get(0);
 	  
-	  //Fetch Cell feed
+	  /**
+	   * Fetch Cell feeds, form row data and put row data into the tree
+	   * All empty blocks need to be filled with "null" or some string
+	   */
 	  CellFeed circe_cellFeed = service.getFeed(circe_worksheet.getCellFeedUrl(), CellFeed.class);
 	  TreeNode root = new StartTreeNode("Circe");
 	  for (Iterator<CellEntry> iter = circe_cellFeed.getEntries().iterator(); iter.hasNext(); ) { 		  
@@ -77,9 +89,12 @@ public class TreeBuilder {
 			  }
 		  }
 	  }
+	  /**
+	   * Print Tree recursively
+	   */
 	  root.printTree();
 	  
-/**   //Code for storing spreadsheet in local 2D-array
+/*    //Code for storing spreadsheet in local 2D-array
 	  //We use cell-based feeds and R1C1 notation to fetch data in the spreadsheet
 	  String[][] form = new String[79][9];   
 	  for (CellEntry cell : circe_cellFeed.getEntries()) {
@@ -105,13 +120,14 @@ public class TreeBuilder {
 	  RowData theRow = new RowData(form[i][0],form[i][1],classList,responseList);
 	  exampleStart.insert(theRow);
   }
-**/  
+*/  
+/*	  //Test
 	  ArrayList<String> classifications = new ArrayList<String>(3);
 	  classifications.add("data");
 	  classifications.add("range");
 	  classifications.add("values differ by factor of 100");
-	  RequestData example = new RequestData("1", "2", classifications, 2);
+	  RequestData example = new RequestData("1", "1", classifications, 2);
 	  System.out.println(root.findResponse(example));
-  }
-  
+*/
+  } 
 }
