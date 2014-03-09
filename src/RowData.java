@@ -25,6 +25,10 @@ public class RowData {
 		this.classList = classList;
 		this.responses = responses;
 	}
+	public String toString(){
+		return labTreeNodeId + " " + tabTreeNodeId + " " + classList.get(0) + " " + classList.get(1) + " "
+				+ classList.get(2);
+	}
 	public String getLabTreeNodeId() {
 		return labTreeNodeId;
 	}
