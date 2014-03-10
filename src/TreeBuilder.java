@@ -28,14 +28,20 @@ public class TreeBuilder {
 			System.out.println("Unable to access the request spreadsheet");
 			System.exit(1);
 		}
-		RequestData example = build_data("1", "2", "", "", "", 2);
-		if (example == null){
-			System.out.println("Insufficient data");
-			System.exit(1);
+		while (true){
+			//Input goes here
+			RequestData example = build_data("1", "2", "", "", "A(SA=100CA||SA=0.01CA)", 2);
+			if (example == null){
+				System.out.println("Insufficient data");
+				System.exit(1);
+			}
+			//String response = root.findResponse(example);
+			System.out.println("\nRequest Response is: "+root.findResponse(example));
+			break;
 		}
-		//String response = root.findResponse(example);
-		System.out.println("\nRequest Response is: "+root.findResponse(example));
+		
 	} 
+	
 	//This will handle incomplete data
 	public static RequestData build_data(String lab, String tab, String class1, String class2, String class3, int tries){
 		//Both 1 and 2 are missing
@@ -294,6 +300,7 @@ public class TreeBuilder {
 	  }
 		 */  
 		
+		//Build the six maps
 		one_to_two = Graph_Build.build(classlist_1, classlist_2);
 		one_to_three = Graph_Build.build(classlist_1, classlist_3);
 		two_to_one = Graph_Build.build(classlist_2, classlist_1);
