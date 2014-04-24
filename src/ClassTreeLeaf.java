@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * Leaves in the tree, inherit ClassTreeNode but with extra field
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class ClassTreeLeaf extends ClassTreeNode {
@@ -35,12 +35,24 @@ public class ClassTreeLeaf extends ClassTreeNode {
 		responses.add(words);
 	}
 
+	/**
+	 * toString method for ClassTreeLeaf
+	 * @return String representation of the node
+	 */
 	@Override
 	public String toString(){
 		return "TypeId: " + typeId + "\tid: " + id + "\n";
 	}
+	/**
+	 * Search for responses in ClassTreeLeaf
+	 * @param RequestData
+	 * @return Responses
+	 */
 	@Override
 	public String findResponse(RequestData request){
-		return responses.get(request.getTries());
+		if (request.getTries()>2)
+			return "failed";
+		else
+			return responses.get(request.getTries());
 	}
 }

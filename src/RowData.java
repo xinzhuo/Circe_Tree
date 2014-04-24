@@ -2,7 +2,7 @@ import java.util.ArrayList;
 /**
  * RowData contains all the information to build the tree
  * It will be passed from root to leaves
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class RowData {
@@ -25,6 +25,9 @@ public class RowData {
 		this.classList = classList;
 		this.responses = responses;
 	}
+	/**
+	 * toString
+	 */
 	public String toString(){
 		return labTreeNodeId + " " + tabTreeNodeId + " " + classList.get(0) + " " + classList.get(1) + " "
 				+ classList.get(2);

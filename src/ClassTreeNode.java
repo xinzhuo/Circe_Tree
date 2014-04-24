@@ -2,7 +2,7 @@
  * Inherit TreeNode, can be child of itself or a TabTreeNode
  * The ClassTreeNode class represent the classifications of a problem
  * A problem can have multiple classifications (multiple levels)
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class ClassTreeNode extends TreeNode{
@@ -14,12 +14,20 @@ public class ClassTreeNode extends TreeNode{
 		super("Class", id);
 	}
 
+	/**
+	 * Insert new treeNode to ClassTreeNode
+	 * @param nodeId
+	 */
 	@Override
 	public void insertTreeNode(String nodeId) {
 		TreeNode node = new ClassTreeNode(nodeId);
 		children.add(node);
 	}
-
+	
+	/**
+	 * Recursively add RowData to the TreeNode layers
+	 * @param RowData
+	 */
 	@Override
 	public void insert(RowData toInsert){
 		if(toInsert.getClassList().size()>1){
@@ -40,10 +48,18 @@ public class ClassTreeNode extends TreeNode{
 			children.add(theLeaf);
 		}
 	}
+	/**
+	 * Recursively find responses with RequestData
+	 * @param RequestData
+	 * @return response from sub-treeNode
+	 */
 	@Override
 	public String findResponse(RequestData request){
 		String classId = request.getClassification();
 		request.addClassLevel();
-		return this.getTreeNode(classId).findResponse(request);
+		if (this.containTreeNode(classId))
+			return this.getTreeNode(classId).findResponse(request);
+		else
+			return "failed";
 	}
 }

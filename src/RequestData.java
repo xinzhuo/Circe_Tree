@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
  * RequestData is used to find responses
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class RequestData {
@@ -66,6 +66,10 @@ public class RequestData {
 		
 	}
 
+	/**
+	 * Get number of tries
+	 * @return
+	 */
 	public int getTries() {
 		return tries;
 	}

@@ -1,7 +1,7 @@
 import java.util.*;
 /**
  * Super class for all node in the tree
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public abstract class TreeNode {
@@ -29,6 +29,14 @@ public abstract class TreeNode {
 	public boolean containTreeNode(String typeId, String nodeId){
 		for (TreeNode node: children){
 			if (node.getId().equals(nodeId) && node.getTypeId().equals(typeId))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean containTreeNode(String nodeId){
+		for (TreeNode node: children){
+			if (node.getId().equals(nodeId))
 				return true;
 		}
 		return false;

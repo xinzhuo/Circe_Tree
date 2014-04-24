@@ -1,6 +1,6 @@
 /**
  * Inherit from TreeNode, first level of the tree (root)
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class StartTreeNode extends TreeNode{
@@ -44,6 +44,9 @@ public class StartTreeNode extends TreeNode{
 	 */
 	@Override
 	public String findResponse(RequestData request){
-		return this.getTreeNode(request.getLabTreeNodeId()).findResponse(request);
+		if (this.containTreeNode(request.getLabTreeNodeId()))
+			return this.getTreeNode(request.getLabTreeNodeId()).findResponse(request);
+		else
+			return "failed";
 	}
 }

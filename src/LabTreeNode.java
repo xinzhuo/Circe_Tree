@@ -1,7 +1,7 @@
 /**
  * Inherit TreeNode, second level of the tree (under StartTreeNode)
  * Represent the Lab number in the system
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class LabTreeNode extends TreeNode{	
@@ -13,6 +13,7 @@ public class LabTreeNode extends TreeNode{
 		super("Lab", labTreeNodeId); 
 	}
 
+	
 	@Override
 	public void insertTreeNode(String nodeId) {
 		TreeNode node = new TabTreeNode(nodeId);
@@ -32,6 +33,9 @@ public class LabTreeNode extends TreeNode{
 	}
 	@Override
 	public String findResponse(RequestData request){
-		return this.getTreeNode(request.getTabTreeNodeId()).findResponse(request);
+		if (this.containTreeNode(request.getTabTreeNodeId()))
+			return this.getTreeNode(request.getTabTreeNodeId()).findResponse(request);
+		else 
+			return "fail";
 	}
 }

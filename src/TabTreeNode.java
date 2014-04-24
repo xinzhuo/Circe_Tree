@@ -1,7 +1,7 @@
 /**
  * Third level of the tree, under LabTreeNode
  * Represent the Tab number in the system
- * @author DongXinzhuo
+ * @author Xinzhuo Dong
  *
  */
 public class TabTreeNode extends TreeNode{
@@ -35,6 +35,9 @@ public class TabTreeNode extends TreeNode{
 	public String findResponse(RequestData request){
 		String classId = request.getClassification();
 		request.addClassLevel();
-		return this.getTreeNode(classId).findResponse(request);
+		if (this.containTreeNode(classId))
+			return this.getTreeNode(classId).findResponse(request);
+		else 
+			return "failed";
 	}
 }
