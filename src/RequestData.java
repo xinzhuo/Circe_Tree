@@ -68,7 +68,7 @@ public class RequestData {
 
 	/**
 	 * Get number of tries
-	 * @return
+	 * @return no. of tries
 	 */
 	public int getTries() {
 		return tries;

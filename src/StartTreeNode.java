@@ -14,7 +14,7 @@ public class StartTreeNode extends TreeNode{
 	
 	/**
 	 * Add new LabTreeNode into Children
-	 * @param node id for LabTreeNode
+	 * @param nodeId
 	 */
 	@Override
 	public void insertTreeNode(String nodeId) {
@@ -24,7 +24,7 @@ public class StartTreeNode extends TreeNode{
 	
 	/**
 	 * Insert RowData into lower tree node
-	 * @param row data
+	 * @param toInsert
 	 */
 	@Override
 	public void insert(RowData toInsert){
@@ -40,7 +40,7 @@ public class StartTreeNode extends TreeNode{
 	
 	/**
 	 * Override findResponse method in TreeNode by go to LabTreeNode children
-	 * @param RequestData
+	 * @param request
 	 */
 	@Override
 	public String findResponse(RequestData request){

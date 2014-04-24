@@ -45,7 +45,7 @@ public class ClassTreeLeaf extends ClassTreeNode {
 	}
 	/**
 	 * Search for responses in ClassTreeLeaf
-	 * @param RequestData
+	 * @param request
 	 * @return Responses
 	 */
 	@Override

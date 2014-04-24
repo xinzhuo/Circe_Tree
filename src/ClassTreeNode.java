@@ -26,7 +26,7 @@ public class ClassTreeNode extends TreeNode{
 	
 	/**
 	 * Recursively add RowData to the TreeNode layers
-	 * @param RowData
+	 * @param toInsert
 	 */
 	@Override
 	public void insert(RowData toInsert){
@@ -50,7 +50,7 @@ public class ClassTreeNode extends TreeNode{
 	}
 	/**
 	 * Recursively find responses with RequestData
-	 * @param RequestData
+	 * @param request
 	 * @return response from sub-treeNode
 	 */
 	@Override

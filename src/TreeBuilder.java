@@ -261,7 +261,7 @@ public class TreeBuilder {
 	/**
 	 * This method will build the tree and return the root
 	 * 
-	 * @return
+	 * @return TreeNode
 	 * @throws AuthenticationException
 	 * @throws MalformedURLException
 	 * @throws IOException
